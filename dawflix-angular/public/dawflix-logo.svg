@@ -1,0 +1,20 @@
+<svg width="720" height="180" viewBox="0 0 720 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Dawflix</title>
+  <desc id="desc">Simple vector logo for Dawflix</desc>
+  <defs>
+    <linearGradient id="paint0_linear" x1="32" y1="26" x2="154" y2="154" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6A3D"/>
+      <stop offset="1" stop-color="#D61F3C"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="192" y1="38" x2="680" y2="130" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#C8CFDE"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="719" height="179" rx="34" fill="rgba(0,0,0,0.08)" stroke="rgba(255,255,255,0.08)"/>
+  <g transform="translate(32 30)">
+    <rect width="120" height="120" rx="36" fill="url(#paint0_linear)"/>
+    <path d="M54 37L88 60.5L54 84V37Z" fill="#050608"/>
+  </g>
+  <text x="188" y="110" fill="url(#paint1_linear)" font-family="Space Grotesk, Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="6">DAWFLIX</text>
+</svg>

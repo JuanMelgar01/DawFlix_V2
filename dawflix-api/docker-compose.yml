@@ -1,0 +1,9 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: dawflix-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dawflix
+    ports:
+      - "3306:3306"

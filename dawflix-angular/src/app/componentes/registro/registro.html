@@ -1,0 +1,108 @@
+<section class="auth">
+    <div class="auth__card auth__card--register">
+        <p class="auth__eyebrow">DAWFLIX</p>
+        <h1 class="auth__title">Registro</h1>
+        <p class="auth__text">¡Bienvenido! Completa el formulario para crear tu cuenta.</p>
+
+        @if (mostrarModalError) {
+            <div class="auth__modal-backdrop">
+                <div class="auth__modal" role="alert" aria-live="assertive">
+                    <h3 class="auth__modal-title">Error</h3>
+                    <p class="auth__modal-text">{{ mensajeError }}</p>
+                    <button type="button" class="auth__modal-button" (click)="mostrarModalError = false">Cerrar</button>
+                </div>
+            </div>
+        }
+
+        <form class="auth__form" [formGroup]="formulario" (ngSubmit)="EnviarDatosRegistro()">
+            @for (campo of [
+                { id: 'username', tipo: 'text' },
+                { id: 'email', tipo: 'email' },
+                { id: 'password', tipo: 'password' }
+            ]; track $index) {
+                <div class="auth__field">
+                    <label for="{{ campo.id }}" class="auth__label">
+                        {{ campo.id }} <span class="auth__required">*</span>
+                    </label>
+
+                    <input
+                        [type]="campo.tipo"
+                        class="auth__input"
+                        [placeholder]="'Introduce tu ' + campo.id"
+                        [formControlName]="campo.id" />
+
+                    @if (formulario.get(campo.id)?.dirty && formulario.get(campo.id)!.errors?.['required']) {
+                        <span class="auth__feedback auth__feedback--error">* {{ campo.id }} requerido</span>
+                    }
+                    @if (formulario.get(campo.id)?.dirty && formulario.get(campo.id)!.errors?.['maxlength']) {
+                        <span class="auth__feedback auth__feedback--error">
+                            * {{ campo.id }} num. máximo de caracteres requeridos
+                            {{ formulario.get(campo.id)!.errors?.['maxlength']?.requiredLength }}
+                        </span>
+                    }
+                    @if (formulario.get(campo.id)?.dirty && formulario.get(campo.id)!.errors?.['minlength']) {
+                        <span class="auth__feedback auth__feedback--error">
+                            * {{ campo.id }} num. mínimo de caracteres requeridos
+                            {{ formulario.get(campo.id)!.errors?.['minlength']?.requiredLength }}
+                        </span>
+                    }
+                    @if (formulario.get(campo.id)?.dirty && formulario.get(campo.id)!.errors?.['email']) {
+                        <span class="auth__feedback auth__feedback--error">* formato de {{ campo.id }} incorrecto</span>
+                    }
+                    @if (formulario.get(campo.id)?.dirty && campo.id === 'email' && formulario.get(campo.id)!.errors?.['emailExiste']) {
+                        <span class="auth__feedback auth__feedback--error">* el correo electrónico no está disponible</span>
+                    }
+
+                    @if (campo.id === 'password' && formulario.get('password')?.dirty && !formulario.get(campo.id)!.errors?.['required']) {
+                        <div class="auth__password-rules">
+                            <div
+                                class="auth__rule"
+                                [class.auth__rule--ok]="!formulario.get('password')!.errors?.['mayuscula']"
+                                [class.auth__rule--error]="formulario.get('password')!.errors?.['mayuscula']">
+                                ✓ Al menos una mayúscula
+                            </div>
+
+                            <div
+                                class="auth__rule"
+                                [class.auth__rule--ok]="!formulario.get('password')!.errors?.['minuscula']"
+                                [class.auth__rule--error]="formulario.get('password')!.errors?.['minuscula']">
+                                ✓ Al menos una minúscula
+                            </div>
+
+                            <div
+                                class="auth__rule"
+                                [class.auth__rule--ok]="!formulario.get('password')!.errors?.['numero']"
+                                [class.auth__rule--error]="formulario.get('password')!.errors?.['numero']">
+                                ✓ Al menos un número
+                            </div>
+
+                            <div
+                                class="auth__rule"
+                                [class.auth__rule--ok]="!formulario.get('password')!.errors?.['especial']"
+                                [class.auth__rule--error]="formulario.get('password')!.errors?.['especial']">
+                                ✓ Al menos un carácter especial
+                            </div>
+
+                            <div
+                                class="auth__rule"
+                                [class.auth__rule--ok]="!formulario.get('password')!.errors?.['longitud']"
+                                [class.auth__rule--error]="formulario.get('password')!.errors?.['longitud']">
+                                ✓ Mínimo 6 caracteres
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+            <div class="auth__actions">
+                <button type="submit" class="auth__button auth__button--secondary" [disabled]="formulario.invalid">
+                    Registrarse
+                </button>
+
+                <a href="/login" class="auth__button auth__button--primary">
+                    Ya tengo cuenta
+                </a>
+            </div>
+        </form>
+    </div>
+</section>

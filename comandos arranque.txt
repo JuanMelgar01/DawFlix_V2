@@ -1,0 +1,11 @@
+Cuando apago el ordenador, tengo que arrancar el contenedor
+
+abre docker desktop
+docker start dawflix-db
+
+
+para mirar los datos de la base de datos
+docker exec -it dawflix-db mysql -u root -p
+la contraseña es root
+
+y luego haces consultas normales
