@@ -18,7 +18,8 @@
             @for (campo of [
                 { id: 'username', tipo: 'text' },
                 { id: 'email', tipo: 'email' },
-                { id: 'password', tipo: 'password' }
+                { id: 'password', tipo: 'password' },
+                { id: 'confirmPassword', tipo: 'password' }
             ]; track $index) {
                 <div class="auth__field">
                     <label for="{{ campo.id }}" class="auth__label">
@@ -90,6 +91,9 @@
                                 ✓ Mínimo 6 caracteres
                             </div>
                         </div>
+                    }
+                    @if(campo.id === 'confirmPassword' && formulario.get('confirmPassword')?.dirty && !formulario.get(campo.id)!.errors?.['required'] && formulario.hasError('comparePasswords')) {
+                        <span class="auth__feedback auth__feedback--error">* Las contraseñas no coinciden</span>
                     }
                 </div>
             }

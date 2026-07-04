@@ -1,0 +1,59 @@
+<section class="auth">
+  <div class="auth__card">
+    <p class="auth__eyebrow">DAWFLIX</p>
+    <h1 class="auth__title">Iniciar sesión</h1>
+    @if (mostrarModalError) {
+    <div class="auth__modal-backdrop">
+      <div class="auth__modal" role="alert" aria-live="assertive">
+        <h3 class="auth__modal-title">Error</h3>
+        <p class="auth__modal-text">{{ mensajeError }}</p>
+        <button type="button" class="auth__modal-button" (click)="mostrarModalError = false">Cerrar</button>
+      </div>
+    </div>
+    }
+    <form class="auth__formLogin" [formGroup]="formLogin" (ngSubmit)="EnviarDatosLogin()">
+      @for (campo of [
+      { id: 'email', tipo: 'email' },
+      { id: 'password', tipo: 'password' }
+      ]; track $index) {
+      <div class="auth__field">
+        <label for="{{ campo.id }}" class="auth__label">
+          {{ campo.id }} <span class="auth__required">*</span>
+        </label>
+        <input [type]="campo.tipo" class="auth__input" [placeholder]="'Introduce tu ' + campo.id"
+          [formControlName]="campo.id" />
+
+        @if (formLogin.get(campo.id)?.dirty && formLogin.get(campo.id)!.errors?.['required']) {
+        <span class="auth__feedback auth__feedback--error">* {{ campo.id }} requerido</span>
+        }
+        @if (formLogin.get(campo.id)?.dirty && formLogin.get(campo.id)!.errors?.['maxlength']) {
+        <span class="auth__feedback auth__feedback--error">
+          * {{ campo.id }} num. máximo de caracteres requeridos
+          {{ formLogin.get(campo.id)!.errors?.['maxlength']?.requiredLength }}
+        </span>
+        }
+        @if (formLogin.get(campo.id)?.dirty && formLogin.get(campo.id)!.errors?.['minlength']) {
+        <span class="auth__feedback auth__feedback--error">
+          * {{ campo.id }} num. mínimo de caracteres requeridos
+          {{ formLogin.get(campo.id)!.errors?.['minlength']?.requiredLength }}
+        </span>
+        }
+        @if (formLogin.get(campo.id)?.dirty && formLogin.get(campo.id)!.errors?.['email']) {
+        <span class="auth__feedback auth__feedback--error">* formLoginato de {{ campo.id }} incorrecto</span>
+        }
+      </div>
+      }
+
+      <div class="auth__actions">
+        <button type="submit" class="auth__button auth__button--primary" [disabled]="formLogin.invalid">
+          Login
+        </button>
+
+        <a href="landing" class="auth__button auth__button--primary">
+          Volver
+        </a>
+      </div>
+    </form>
+
+  </div>
+</section>

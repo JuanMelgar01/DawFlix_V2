@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { passValidator } from '../../validadores/PassValidator';
-import { ServAPIBack } from '../../servicios/serv-apiback';
-import IRespuestaBack from '../../modelos/IRespuestaBack';
-import { emailExisteValidator } from '../../validadores/EmailExisteValidator';
+import { passValidator } from '../../../validadores/PassValidator';
+import { ServAPIBack } from '../../../servicios/serv-apiback';
+import IRespuestaBack from '../../../modelos/IRespuestaBack';
+import { emailExisteValidator } from '../../../validadores/EmailExisteValidator';
+import { comparadorPassValidator } from '../../../validadores/ComparePassword';
 
 @Component({
   selector: 'app-registro',
@@ -27,7 +28,10 @@ export class Registro {
         asyncValidators: [emailExisteValidator()],
         updateOn: 'blur'
       }),
-      password: new FormControl('', [Validators.required, passValidator])
+      password: new FormControl('', [Validators.required, passValidator]),
+      confirmPassword: new FormControl('', [Validators.required])
+    },{
+      validators: [comparadorPassValidator]
     }
   );
 
