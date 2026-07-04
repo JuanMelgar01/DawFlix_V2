@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { AuthPageComponent } from './componentes/auth-page/auth-page.component';
-import { IntroComponent } from './componentes/intro/intro.component';
-import { LandingComponent } from './componentes/landing/landing.component';
+import { AuthPageComponent } from './componentes/inicio/auth-page/auth-page.component';
+import { IntroComponent } from './componentes/inicio/intro/intro.component';
+import { LandingComponent } from './componentes/inicio/landing/landing.component';
 
 export const routes: Routes = [
 	{
@@ -10,19 +10,20 @@ export const routes: Routes = [
 		component: IntroComponent,
 	},
 	{
-		path: 'home',
+		path: 'landing',
 		component: LandingComponent,
 	},
 	{
 		path: 'login',
-		component: AuthPageComponent,
-		data: {
-			mode: 'login',
-		},
+		loadComponent: () => import('./componentes/inicio/auth-page/auth-page.component').then((m) => m.AuthPageComponent),
 	},
 	{
 		path: 'register',
-		loadComponent: () => import('./componentes/registro/registro').then((m) => m.Registro),
+		loadComponent: () => import('./componentes/inicio/registro/registro').then((m) => m.Registro),
+	},
+		{
+		path: 'home',
+		loadComponent: () => import('./componentes/zonaApp/home').then((m) => m.Home),
 	},
 	{
 		path: '**',

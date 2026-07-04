@@ -13,7 +13,7 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.timeoutId = window.setTimeout(() => {
-      void this.router.navigateByUrl('/home');
+      void this.router.navigateByUrl('/landing');
     }, 2400);
   }
 
