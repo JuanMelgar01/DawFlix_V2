@@ -1,0 +1,14 @@
+.layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    height: 100vh;
+    overflow: hidden;
+}
+
+.layout__content {
+    min-width: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}

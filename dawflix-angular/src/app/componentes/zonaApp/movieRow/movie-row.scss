@@ -1,0 +1,26 @@
+.movie-row{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.5rem;
+}
+.movie-row__content{
+
+    display:flex;
+
+    gap:1.25rem;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    padding-bottom:.5rem;
+
+    scroll-behavior:smooth;
+}
+.movie-row__content::-webkit-scrollbar{
+
+    display:none;
+}

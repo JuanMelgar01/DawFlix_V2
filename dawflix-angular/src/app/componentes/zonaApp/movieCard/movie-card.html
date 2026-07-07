@@ -1,0 +1,34 @@
+<article class="movie-card">
+
+    <img
+        class="movie-card__image"
+        [src]="movie().posterUrl"
+        [alt]="movie().title">
+
+    <div class="movie-card__overlay">
+
+        <h3 class="movie-card__title">
+
+            {{movie().title}}
+
+        </h3>
+
+        <div class="movie-card__footer">
+
+            <span>
+
+                ⭐ {{movie().rating}}
+
+            </span>
+
+            <span>
+
+                {{movie().releaseYear}}
+
+            </span>
+
+        </div>
+
+    </div>
+
+</article>
