@@ -1,0 +1,24 @@
+<section class="movie-row">
+
+    <div class="movie-row__header">
+
+        <h2 class="movie-row__title">
+
+            {{ title() }}
+
+        </h2>
+
+    </div>
+
+    <div class="movie-row__content">
+
+        @for(movie of movies(); track movie.id){
+
+            <app-movie-card
+                [movie]="movie"/>
+
+        }
+
+    </div>
+
+</section>

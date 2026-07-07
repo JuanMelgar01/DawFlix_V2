@@ -1,1 +1,13 @@
-<p>home works!</p>
+@if (featuredMovie()) {
+    <section class="home">
+        <app-hero
+            [movie]="featuredMovie()!" />
+    </section>
+}
+
+@if (popularMovies().length) {
+    <app-movie-row
+        title="Populares"
+        [movies]="popularMovies()" />   
+
+}
