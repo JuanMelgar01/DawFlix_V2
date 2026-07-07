@@ -6,6 +6,9 @@ En esta segunda versión el proyecto ha sido rediseñado como una aplicación **
 
 El objetivo no es únicamente replicar la funcionalidad del proyecto original, sino construir una arquitectura moderna, escalable y mantenible que sirva como proyecto de aprendizaje y portfolio.
 
+<img width="1536" height="1024" alt="7 jul 2026, 20_50_01" src="https://github.com/user-attachments/assets/633d248b-3224-4cf1-970f-f7efefd173a4" />
+
+
 > 🚧 El proyecto se encuentra actualmente en desarrollo.
 
 ---
