@@ -7,7 +7,19 @@
 
 @if (popularMovies().length) {
     <app-movie-row
-        title="Populares"
-        [movies]="popularMovies()" />   
+    title="🔥 Populares"
+    [movies]="popularMovies()" />
+
+    <app-movie-row
+    title="⭐ Mejor valoradas"
+    [movies]="topRatedMovies()" />
+
+    <app-movie-row
+    title="🎬 En cartelera"
+    [movies]="nowPlayingMovies()" />
+
+    <app-movie-row
+    title="🚀 Próximos estrenos"
+    [movies]="upcomingMovies()" />
 
 }

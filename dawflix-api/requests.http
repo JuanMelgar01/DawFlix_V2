@@ -1,1 +1,2 @@
-GET http://localhost:8084/api/movies/popular
+GET http://localhost:8084/api/favorites
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiamdhYmk4NEBob3RtYWlsLmNvbSIsImlhdCI6MTc4MzkzMjc5OSwiZXhwIjoxNzg1NzMyNzk5fQ.MYyUl-8iP7PjrFB24W-YJliUanLC-sbUl7Coh8rEFkg

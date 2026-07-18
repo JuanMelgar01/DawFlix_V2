@@ -12,6 +12,21 @@
             {{movie().title}}
 
         </h3>
+        <button
+            class="movie-card__favorite"
+            (click)="toggleFavorite($event)">
+
+            @if (isFavorite()) {
+
+                ❤️
+
+            } @else {
+
+                🤍
+
+            }
+
+        </button>
 
         <div class="movie-card__footer">
 

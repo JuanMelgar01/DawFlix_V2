@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { Movie } from '../../../modelos/movie';
+import { MovieService } from '../../../servicios/movie';
 
 @Component({
   selector: 'app-hero',
@@ -10,5 +11,6 @@ import { Movie } from '../../../modelos/movie';
 export class Hero {
 
   movie = input.required<Movie>();
+
 
 }
