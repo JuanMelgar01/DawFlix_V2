@@ -51,11 +51,25 @@ public class GlobalExceptionHandler {
                 .body(new ApiResponse<>(1004, "Usuario no encontrado", null));
     }
 
+    @ExceptionHandler(UserNotAuthenticatedException.class)
+    public ResponseEntity<ApiResponse<String>> handleNotFound(UserNotAuthenticatedException ex) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(new ApiResponse<>(1004, "Usuario no autenticado", null));
+    }
+
     @ExceptionHandler(FailSendEmailException.class)
     public ResponseEntity<ApiResponse<String>> handleFailSendEmail(FailSendEmailException ex) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(new ApiResponse<>(1005, "Error enviando email de verificación", null));
+    }
+
+    @ExceptionHandler(FavoriteAlreadyExistsException.class)
+    public ResponseEntity<ApiResponse<String>> handleFavoriteAlreadyExists(FavoriteAlreadyExistsException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ApiResponse<>(1006, "La película ya está en favoritos", null));
     }
 
     @ExceptionHandler(Exception.class)

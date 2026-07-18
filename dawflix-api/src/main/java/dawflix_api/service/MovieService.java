@@ -1,6 +1,7 @@
 package dawflix_api.service;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.stereotype.Service;
 
@@ -27,5 +28,42 @@ public class MovieService {
                 .toList();
 
     }
-    
+
+    public MovieDto getMovieById(Long movieId) {
+        return movieMapper.toMovieDTO(tmdbClient.getMovieById(movieId));
+    }
+
+    public MovieDto getFeaturedMovie() {
+        List<MovieDto> popularMovies = getPopularMovies();
+
+        int randomIndex = ThreadLocalRandom.current().nextInt(popularMovies.size());
+        return popularMovies.get(randomIndex);
+    }
+
+    public List<MovieDto> getTopRatedMovies() {
+        return tmdbClient
+                .getTopRatedMovies()
+                .results()
+                .stream()
+                .map(movieMapper::toMovieDTO)
+                .toList();
+    }
+
+    public List<MovieDto> getNowPlayingMovies() {
+        return tmdbClient
+                .getNowPlayingMovies()
+                .results()
+                .stream()
+                .map(movieMapper::toMovieDTO)
+                .toList();
+    }
+
+    public List<MovieDto> getUpcomingMovies() {
+        return tmdbClient
+                .getUpcomingMovies()
+                .results()
+                .stream()
+                .map(movieMapper::toMovieDTO)
+                .toList();
+    }
 }

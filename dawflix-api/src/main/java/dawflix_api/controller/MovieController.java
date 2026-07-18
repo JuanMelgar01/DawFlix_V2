@@ -2,6 +2,7 @@ package dawflix_api.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,4 +25,23 @@ public class MovieController {
 
     }
 
+    @GetMapping("/featured")
+    public MovieDto getFeaturedMovie() {
+        return movieService.getFeaturedMovie();
+    }
+
+    @GetMapping("/top-rated")
+    public ResponseEntity<List<MovieDto>> getTopRatedMovies() {
+        return ResponseEntity.ok(movieService.getTopRatedMovies());
+    }
+
+    @GetMapping("/now-playing")
+    public ResponseEntity<List<MovieDto>> getNowPlayingMovies() {
+        return ResponseEntity.ok(movieService.getNowPlayingMovies());
+    }
+
+    @GetMapping("/upcoming")
+    public ResponseEntity<List<MovieDto>> getUpcomingMovies() {
+        return ResponseEntity.ok(movieService.getUpcomingMovies());
+    }
 }
