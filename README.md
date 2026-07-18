@@ -24,11 +24,14 @@ El objetivo no es únicamente replicar la funcionalidad del proyecto original, s
 - JWT Authentication
 - PostgreSQL
 - Docker
+- Maven
 
 ## Frontend
 
 - Angular
 - TypeScript
+- Signals
+- RxJS
 - HTML5
 - CSS3
 
@@ -38,12 +41,37 @@ El objetivo no es únicamente replicar la funcionalidad del proyecto original, s
 
 Actualmente el proyecto incluye:
 
+## Autenticación
+
 - Registro de usuarios
 - Inicio de sesión
 - Autenticación mediante JWT
 - Verificación de cuenta por correo electrónico
+- Protección de rutas y endpoints
 - Control de acceso mediante roles
+
+## 🎬 Catálogo
+
+- Visualización del catálogo de películas
+- Consulta del detalle de cada película
+- Información completa (sinopsis, duración, año, director, reparto, etc.)
+
+## ❤️ Favoritos
+
+- Añadir películas a favoritos
+- Eliminar favoritos
+- Persistencia en base de datos
+- Actualización inmediata mediante Optimistic UI
+- Sincronización entre frontend y backend
+
+## ⚙️ Arquitectura
+
 - API REST
+- Separación Backend / Frontend
+- Arquitectura por capas
+- DTOs
+- Manejo centralizado de excepciones
+- Comunicación mediante JSON
 
 Las funcionalidades irán ampliándose conforme avance el desarrollo.
 
@@ -192,12 +220,12 @@ Actualmente el desarrollo está centrado en:
 - Gestión de usuarios
 - Arquitectura del backend
 - Desarrollo del frontend en Angular
+- Catálogo de películas
+- Gestión de favoritos
 
 Próximas funcionalidades previstas:
 
-- Catálogo de películas
 - Buscador
-- Gestión de favoritos
 - Valoraciones
 - Perfil de usuario
 - Panel de administración
@@ -220,6 +248,9 @@ Este proyecto tiene como finalidad consolidar conocimientos sobre:
 - Buenas prácticas de desarrollo
 
 ---
+
+<img width="1898" height="905" alt="image" src="https://github.com/user-attachments/assets/c19c9146-f7e8-42a7-9c8f-02e1e5aaadf7" />
+
 
 # 📄 Licencia
 
