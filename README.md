@@ -25,6 +25,9 @@ El objetivo no es únicamente replicar la funcionalidad del proyecto original, s
 - PostgreSQL
 - Docker
 - Maven
+- JUnit 5
+- Mockito
+- Spring Boot Test
 
 ## Frontend
 
@@ -72,6 +75,35 @@ Actualmente el proyecto incluye:
 - DTOs
 - Manejo centralizado de excepciones
 - Comunicación mediante JSON
+
+## 🧪 Testing
+
+El proyecto incluye una primera capa de pruebas automatizadas utilizando **JUnit 5** y **Mockito**.
+
+Actualmente se han implementado tests unitarios sobre la lógica de negocio del backend, aislando las diferentes capas mediante mocks para evitar dependencias externas como la base de datos o servicios externos.
+
+Tests actuales:
+
+### FavoriteService
+
+- Añadir películas a favoritos correctamente
+- Evitar favoritos duplicados
+- Eliminar favoritos existentes
+- Controlar eliminación de favoritos inexistentes
+- Obtener favoritos de un usuario
+
+Tecnologías utilizadas:
+
+- JUnit 5 para la ejecución y estructura de los tests
+- Mockito para simular dependencias y verificar comportamientos
+- ArgumentCaptor para validar objetos generados por los servicios
+
+El objetivo es continuar ampliando la cobertura de pruebas con:
+
+- Tests de servicios adicionales
+- Tests de repositorios con base de datos de prueba
+- Tests de controladores mediante MockMvc
+- Tests de integración con Spring Boot
 
 Las funcionalidades irán ampliándose conforme avance el desarrollo.
 
@@ -222,6 +254,7 @@ Actualmente el desarrollo está centrado en:
 - Desarrollo del frontend en Angular
 - Catálogo de películas
 - Gestión de favoritos
+- Implementación de tests automatizados
 
 Próximas funcionalidades previstas:
 
@@ -245,6 +278,9 @@ Este proyecto tiene como finalidad consolidar conocimientos sobre:
 - Docker
 - PostgreSQL
 - Arquitectura de aplicaciones
+- Arquitectura por capas
+- Desarrollo orientado a pruebas (Testing)
+- JUnit 5 y Mockito
 - Buenas prácticas de desarrollo
 
 ---
